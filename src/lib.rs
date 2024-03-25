@@ -1,6 +1,7 @@
 mod params;
 mod dsp;
 mod buffer;
+mod editor;
 
 use std::sync::Arc;
 use nih_plug::prelude::*;
@@ -56,13 +57,19 @@ impl Plugin for Elysiera {
         self.params.clone()
     }
 
+    fn editor(&mut self, _async_executor: AsyncExecutor<Self>) -> Option<Box<dyn Editor>> {
+        editor::create(
+            self.params.clone(),
+            self.params.editor_state.clone(),
+        )
+    }
+
     fn initialize(
         &mut self,
         _audio_io_layout: &AudioIOLayout,
         buffer_config: &BufferConfig,
         _context: &mut impl InitContext<Self>,
     ) -> bool {
-        nih_log!("Sample rate: {}", buffer_config.sample_rate);
         self.dsp.init(buffer_config.sample_rate as i32);
         self.buffer.resize(2, 1024);
         true
