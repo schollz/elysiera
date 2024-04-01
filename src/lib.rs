@@ -58,10 +58,7 @@ impl Plugin for Elysiera {
     }
 
     fn editor(&mut self, _async_executor: AsyncExecutor<Self>) -> Option<Box<dyn Editor>> {
-        editor::create(
-            self.params.clone(),
-            self.params.editor_state.clone(),
-        )
+        editor::editor(self.params.clone())
     }
 
     fn initialize(

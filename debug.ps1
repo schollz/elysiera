@@ -24,5 +24,10 @@ if ($to -eq $null) {
 gsudo Copy-Item $build $to -Force
 # Set "NIH_LOG" environment variable to a file path
 $env:NIH_LOG = "$pwd/elysiera.log"
-# Open Ableton
-Start-Process -FilePath "C:\ProgramData\Ableton\Live 12 Beta\Program\Ableton Live 12 Beta.exe"
+# Open plugin host
+Write-Host "Opening $env:VST3_TESTER"
+if ($env:VST3_TESTER -eq $null) {
+    Write-Host "VST3_TESTER is not set. Skipping opening Ableton."
+    exit 0
+}
+Start-Process -FilePath $env:VST3_TESTER

@@ -15,7 +15,6 @@ The [DSP file](faust/dsp.dsp) is pretty self-explanatory on how it works:
 4. Modulate first pitch shifter with sine oscillator and second with cosine oscillator so that it have that wavy sound. Do the opposite for the right channel because why not.
 5. Run it through reverb (I use Fons Adriaensen's `zita-rev1` because it sounded cool).
 
-
 ****
 ## Installing
 WIP

@@ -44,7 +44,7 @@ group_filter (x) = grp(hgroup("[3]Filter", x));
 lp_filter_cutoff = group_filter(vslider("[0]Lowpass [style:knob] [unit:Hz]", 18000.0, 25.0, 22000.0, 0.01));
 lp_filter_q      = group_filter(vslider("[1]Lowpass Q [style:knob]", 0.71, 0.1, 2.0, 0.01));
 hp_filter_cutoff = group_filter(vslider("[3]Highpass [style:knob] [unit:Hz]", 250.0, 25.0, 22000.0, 0.01));
-hp_filter_q      = group_filter(vslider("[4]Resonance [style:knob]", 0.71, 0.1, 2.0, 0.01));
+hp_filter_q      = group_filter(vslider("[4]Highpass Q [style:knob]", 0.71, 0.1, 2.0, 0.01));
 
 // - Pitch
 
